@@ -31,6 +31,12 @@ export class AuthService {
       return false;
     }
 
+    // Kiểm tra token có đúng định dạng JWT không (xxx.yyy.zzz)
+    if (!token.includes('.') || token.split('.').length !== 3) {
+      console.error('Invalid JWT format');
+      return false;
+    }
+
     try {
       const decodedToken: any = jwtDecode(token);
       const currentTime = Date.now() / 1000; // Chuyển đổi sang giây

@@ -23,7 +23,7 @@ export class LoginComponent {
       next: (response) => {
         console.log('Đăng nhập thành công:', response);
         // @ts-ignore
-        localStorage.setItem('access_token', response.token);
+        localStorage.setItem('access_token', response.data);
         this.router.navigate(['/dashboard']);
       },
       error: (error) => {

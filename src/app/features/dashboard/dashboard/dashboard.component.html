@@ -1,1 +1,160 @@
-<p>dashboard works!</p>
+<div class="app-layout">
+  <!-- Added: Navigation sidebar -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <img src="assets/logo-light.png" alt="Logo" class="logo">
+      
+    </div>
+    <ul class="nav-links">
+      <li class="nav-item active">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      </li>
+      <li class="nav-item">
+        <i class="fas fa-users"></i>
+        <span>Group Expenses</span>
+      </li>
+      <li class="nav-item">
+        <i class="fas fa-comments"></i>
+        <span>Group Chat</span>
+      </li>
+      <li class="nav-item">
+        <i class="fas fa-wallet"></i>
+        <span>Accounts</span>
+      </li>
+      <li class="nav-item">
+        <i class="fas fa-tags"></i>
+        <span>Categories</span>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="main-content">
+    <!-- Added: Top navbar -->
+    <header class="top-navbar">
+      <div class="search-bar">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Search...">
+      </div>
+      <div class="nav-actions">
+        <div class="notifications">
+          <i class="fas fa-bell"></i>
+          <span class="badge">3</span>
+        </div>
+        <div class="user-profile">
+          <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde" alt="Profile">
+          <span>John Doe</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard-container">
+      <div class="header-section">
+        <h1>Financial Dashboard</h1>
+        <div class="quick-actions">
+          <button class="action-btn" (click)="openTransactionModal()">New Transaction</button>
+          <button class="action-btn" (click)="openBudgetModal()">Create Budget</button>
+          <button class="action-btn" (click)="generateReport()">Generate Report</button>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <h3>Total Balance</h3>
+          <p class="amount">{{ totalBalance | currency }}</p>
+          <span class="trend" [class.positive]="balanceTrend > 0">{{ balanceTrend }}%</span>
+        </div>
+        <div class="metric-card">
+          <h3>Monthly Income</h3>
+          <p class="amount">{{ monthlyIncome | currency }}</p>
+          <span class="trend" [class.positive]="incomeTrend > 0">{{ incomeTrend }}%</span>
+        </div>
+        <div class="metric-card">
+          <h3>Monthly Expenses</h3>
+          <p class="amount">{{ monthlyExpenses | currency }}</p>
+          <span class="trend" [class.negative]="expenseTrend > 0">{{ expenseTrend }}%</span>
+        </div>
+        <div class="metric-card">
+          <h3>Savings Rate</h3>
+          <p class="amount">{{ savingsRate }}%</p>
+          <span class="trend" [class.positive]="savingsRate > 20">Target: 20%</span>
+        </div>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-card">
+          <h3>Expense Categories</h3>
+          <apx-chart
+            [series]="expensePieChart.series"
+            [chart]="expensePieChart.chart"
+            [labels]="expensePieChart.labels"
+            [colors]="expensePieChart.colors"
+          ></apx-chart>
+        </div>
+        <div class="chart-card">
+          <h3>Income vs Expenses Trend</h3>
+          <apx-chart
+            [series]="trendChart.series"
+            [chart]="trendChart.chart"
+            [xaxis]="trendChart.xaxis"
+            [colors]="trendChart.colors"
+          ></apx-chart>
+        </div>
+      </div>
+
+      <div class="budget-progress">
+        <h3>Monthly Budget Progress</h3>
+        <div class="progress-bars">
+          <div *ngFor="let category of budgetProgress" class="category-progress">
+            <div class="category-label">
+              <span>{{ category.name }}</span>
+              <span>{{ category.current | currency }} / {{ category.total | currency }}</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress" [style.width.%]="(category.current/category.total)*100"
+                   [class.warning]="(category.current/category.total) > 0.8"
+                   [class.danger]="(category.current/category.total) > 1">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Added: Group Expenses Section -->
+    <div class="group-sections">
+      <div class="section-card">
+        <h3>Group Expenses</h3>
+        <div class="group-list">
+          <div class="group-item" *ngFor="let group of groupExpenses">
+            <div class="group-info">
+              <img [src]="group.image" [alt]="group.name">
+              <div class="group-details">
+                <h4>{{group.name}}</h4>
+                <p>{{group.members}} members</p>
+              </div>
+            </div>
+            <p class="group-amount">{{group.amount | currency}}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Added: Group Chat Section -->
+      <div class="section-card">
+        <h3>Group Chat</h3>
+        <div class="chat-container">
+          <div class="chat-messages" *ngFor="let message of groupMessages">
+            <div class="message" [class.own-message]="message.isOwn">
+              <img [src]="message.userImage" [alt]="message.userName">
+              <div class="message-content">
+                <p class="user-name">{{message.userName}}</p>
+                <p class="message-text">{{message.text}}</p>
+                <span class="message-time">{{message.time}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
