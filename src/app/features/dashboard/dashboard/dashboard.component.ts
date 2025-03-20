@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {
   ApexAxisChartSeries,
   ApexChart,
@@ -10,6 +10,8 @@ import {
   ApexLegend,
   NgApexchartsModule
 } from "ng-apexcharts";
+declare var $: any;
+declare var owl: any;
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +20,7 @@ import {
   standalone: true,
   imports: [CommonModule, NgApexchartsModule]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, AfterViewInit {
   totalBalance: number = 25000;
   balanceTrend: number = 12.5;
   monthlyIncome: number = 5000;
@@ -124,6 +126,29 @@ export class DashboardComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
+
+  ngAfterViewInit() {
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      autoplay: false,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true,
+      responsive: {
+        0: {
+          items: 1
+        },
+        600: {
+          items: 3
+        },
+        1000: {
+          items: 5
+        }
+      }
+    });
+  }
 
   openTransactionModal(): void {
     console.log("Opening transaction modal");

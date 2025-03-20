@@ -1,0 +1,67 @@
+<nav class="navbar" [class.sidebar-hidden]="isSidebarHidden">
+    <div class="container-fluid">
+        <div class="d-flex align-items-center">
+            <button class="btn btn-link d-md-none" (click)="toggleSidebar()">
+                <i class='bx bx-menu fs-4'></i>
+            </button>
+            <button class="btn btn-link d-none d-md-block" (click)="toggleSidebar()">
+                <i class='bx bx-menu fs-4'></i>
+            </button>
+            <!-- <h5 class="mb-0 ms-3">Dashboard</h5> -->
+        </div>
+        <div class="d-flex align-items-center">
+            <div class="dropdown">
+                <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                    <img src="assets/images/icon-user-male.svg" alt="User">
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<div class="sidebar" [class.hidden]="isSidebarHidden">
+    <div class="logo">
+        <img src="assets/images/dark-logo.svg" alt="Logo">
+        <span>Dashboard</span>
+    </div>
+    <div class="p-3">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" routerLink="/dashboard" routerLinkActive="active" title="Dashboard">
+                    <img src="assets/images/icon-dd-application.svg" alt="Dashboard">
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/users" routerLinkActive="active" title="Users">
+                    <img src="assets/images/icon-user-male.svg" alt="Users">
+                    <span>Users</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/settings" routerLinkActive="active" title="Settings">
+                    <img src="assets/images/icon-dd-lifebuoy.svg" alt="Settings">
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/reports" routerLinkActive="active" title="Reports">
+                    <img src="assets/images/icon-tasks.svg" alt="Reports">
+                    <span>Reports</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content" [class.sidebar-hidden]="isSidebarHidden">
+    <router-outlet></router-outlet>
+</div>
