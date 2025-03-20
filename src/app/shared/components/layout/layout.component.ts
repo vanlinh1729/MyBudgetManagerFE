@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ThemeService } from '../../../core/services/theme.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,8 +12,15 @@ import { RouterModule } from '@angular/router';
 })
 export class LayoutComponent {
     isSidebarHidden = false;
+    isDarkTheme$ = this.themeService.isDarkTheme$;
+
+    constructor(private themeService: ThemeService) {}
 
     toggleSidebar() {
       this.isSidebarHidden = !this.isSidebarHidden;
+    }
+
+    toggleTheme() {
+      this.themeService.toggleTheme();
     }
 } 

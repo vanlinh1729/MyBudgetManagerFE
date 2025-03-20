@@ -1,2 +1,349 @@
 /* You can add global styles to this file, and also import other style files */
 
+/* Dark Theme */
+.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #e1e1e1;
+    --text-muted: #a0a0a0;
+    --border-color: #404040;
+    --sidebar-bg: #242424;
+    --navbar-bg: #242424;
+    --hover-bg: #333333;
+    --input-bg: #333333;
+    --card-bg: #242424;
+    --link-color: #63a9ff;
+    --link-hover-color: #90c2ff;
+    --icon-color: #e1e1e1;
+    --badge-bg: #0d6efd;
+    --badge-color: #ffffff;
+    --active-menu-bg: #333333;
+    --active-menu-color: #63a9ff;
+    --chart-grid-color: #404040;
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Light Theme (default) */
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #333333;
+    --text-muted: #6c757d;
+    --border-color: #e0e0e0;
+    --sidebar-bg: #ffffff;
+    --navbar-bg: #ffffff;
+    --hover-bg: #f8f9fa;
+    --input-bg: #f8f9fa;
+    --card-bg: #ffffff;
+    --link-color: #0d6efd;
+    --link-hover-color: #0a58ca;
+    --icon-color: #6c757d;
+    --badge-bg: #dc3545;
+    --badge-color: #ffffff;
+    --active-menu-bg: #e9ecef;
+    --active-menu-color: #0d6efd;
+    --chart-grid-color: #e0e0e0;
+    --box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Apply theme variables */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Text styles */
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: var(--navbar-bg) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--box-shadow);
+}
+
+.navbar .btn-link {
+    color: var(--text-color) !important;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: var(--sidebar-bg) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--box-shadow);
+}
+
+.sidebar .nav-link {
+    color: var(--text-color) !important;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--hover-bg) !important;
+    color: var(--link-color) !important;
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--active-menu-bg) !important;
+    color: var(--active-menu-color) !important;
+}
+
+.sidebar .logo span {
+    color: var(--text-color) !important;
+}
+
+/* Icons and badges */
+.nav-icon {
+    color: var(--icon-color);
+}
+
+.nav-icon:hover {
+    background-color: var(--hover-bg) !important;
+    color: var(--link-color) !important;
+}
+
+.badge {
+    background-color: var(--badge-bg) !important;
+    color: var(--badge-color) !important;
+}
+
+/* Search box */
+.search-box input {
+    background-color: var(--input-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
+}
+
+.search-box input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-box i {
+    color: var(--text-muted) !important;
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+    background-color: var(--navbar-bg) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--box-shadow);
+}
+
+.dropdown-item {
+    color: var(--text-color) !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--hover-bg) !important;
+    color: var(--link-color) !important;
+}
+
+.dropdown-divider {
+    border-color: var(--border-color) !important;
+}
+
+/* Main content area */
+.main-content {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+}
+
+/* Override dark theme for owl carousel items */
+.owl-carousel * {
+    color: inherit !important;
+}
+
+.owl-carousel .item {
+    color: inherit !important;
+    background-color: rgba(255, 255, 255, 0.65) !important;
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+}
+
+.dark-theme .owl-carousel .item {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+/* Glass effect for carousel items */
+.owl-carousel .item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.dark-theme .owl-carousel .item::before {
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.03) 50%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+}
+
+/* Keep other main content elements themed */
+.main-content *:not(.owl-carousel *) {
+    color: var(--text-color) !important;
+}
+
+.main-content .text-muted:not(.owl-carousel *) {
+    color: var(--text-muted) !important;
+}
+
+.main-content a:not(.owl-carousel a) {
+    color: var(--link-color) !important;
+}
+
+.main-content a:hover:not(.owl-carousel a:hover) {
+    color: var(--link-hover-color) !important;
+}
+
+.main-content h1:not(.owl-carousel h1),
+.main-content h2:not(.owl-carousel h2),
+.main-content h3:not(.owl-carousel h3),
+.main-content h4:not(.owl-carousel h4),
+.main-content h5:not(.owl-carousel h5),
+.main-content h6:not(.owl-carousel h6) {
+    color: var(--text-color) !important;
+}
+
+.main-content p:not(.owl-carousel p),
+.main-content span:not(.owl-carousel span),
+.main-content div:not(.owl-carousel div) {
+    color: var(--text-color) !important;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+    box-shadow: var(--box-shadow);
+    color: var(--text-color) !important;
+}
+
+.card-header {
+    background-color: var(--card-bg) !important;
+    border-bottom-color: var(--border-color) !important;
+}
+
+.card-footer {
+    background-color: var(--card-bg) !important;
+    border-top-color: var(--border-color) !important;
+}
+
+/* Tables */
+.table {
+    color: var(--text-color) !important;
+}
+
+.table thead th {
+    border-bottom-color: var(--border-color) !important;
+    background-color: var(--card-bg) !important;
+}
+
+.table td {
+    border-color: var(--border-color) !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--hover-bg) !important;
+}
+
+/* Forms */
+.form-control {
+    background-color: var(--input-bg) !important;
+    border-color: var(--border-color) !important;
+    color: var(--text-color) !important;
+}
+
+.form-control:focus {
+    border-color: var(--active-menu-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25) !important;
+}
+
+.form-control::placeholder {
+    color: var(--text-muted);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--badge-bg) !important;
+    border-color: var(--badge-bg) !important;
+    color: var(--badge-color) !important;
+}
+
+.btn-outline-primary {
+    border-color: var(--badge-bg) !important;
+    color: var(--badge-bg) !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--badge-bg) !important;
+    color: var(--badge-color) !important;
+}
+
+/* Charts and graphs */
+.chart-container {
+    background-color: var(--card-bg) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--hover-bg);
+}
+
+/* Transitions */
+.navbar,
+.sidebar,
+.main-content,
+.card,
+.btn,
+.form-control,
+.nav-link,
+.dropdown-menu {
+    transition: all 0.3s ease !important;
+}
+

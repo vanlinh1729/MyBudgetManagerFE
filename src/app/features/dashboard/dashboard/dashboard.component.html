@@ -1,5 +1,4 @@
-
-<div class="row">
+<div class="row mb-4">
     <div class="owl-carousel owl-theme">
   <div class="item">
     <div class="card border-0 zoom-in bg-info-subtle shadow-none">
@@ -57,21 +56,175 @@
 </div>
 </div>
 </div>
-<div class="col-lg-8">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Main Content</h5>
-            <p class="card-text">Your content goes here...</p>
-        </div>
-    </div>
-</div>
-<div class="col-lg-4">
-    <div class="card">
-        <div class="card-body">
-            <h5 class="card-title">Sidebar Content</h5>
-            <p class="card-text">Additional information goes here...</p>
-        </div>
-    </div>
-</div>
 
+<!-- Transactions and Budget Section -->
+<div class="row g-4">
+    <!-- Recent Transactions -->
+    <div class="col-lg-8">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header border-0 bg-transparent py-3">
+                <div class="d-flex align-items-center justify-content-between">
+                    <h5 class="mb-0">Recent Transactions</h5>
+                    <button class="btn btn-link p-0 text-dark">
+                        <i class='bx bx-plus fs-4'></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body px-4">
+                <div class="vstack gap-3">
+                    <!-- Transaction Item -->
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-info-subtle rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <span class="text-info fw-medium">G</span>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h6 class="mb-0">Grocery Shopping</h6>
+                                    <span class="badge bg-info-subtle text-info rounded-pill px-2 fs-xs">Food</span>
+                                </div>
+                                <small class="text-muted">20 Feb 2024</small>
+                            </div>
+                        </div>
+                        <span class="text-danger fw-medium">-$120.50</span>
+                    </div>
+
+                    <!-- Transaction Item -->
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-success-subtle rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <span class="text-success fw-medium">S</span>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h6 class="mb-0">Salary Deposit</h6>
+                                    <span class="badge bg-success-subtle text-success rounded-pill px-2 fs-xs">Income</span>
+                                </div>
+                                <small class="text-muted">19 Feb 2024</small>
+                            </div>
+                        </div>
+                        <span class="text-success fw-medium">+$3,500.00</span>
+                    </div>
+
+                    <!-- Transaction Item -->
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-warning-subtle rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <span class="text-warning fw-medium">N</span>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h6 class="mb-0">Netflix Subscription</h6>
+                                    <span class="badge bg-warning-subtle text-warning rounded-pill px-2 fs-xs">Entertainment</span>
+                                </div>
+                                <small class="text-muted">18 Feb 2024</small>
+                            </div>
+                        </div>
+                        <span class="text-danger fw-medium">-$15.99</span>
+                    </div>
+
+                    <!-- Transaction Item -->
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="bg-danger-subtle rounded-circle d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                <span class="text-danger fw-medium">E</span>
+                            </div>
+                            <div>
+                                <div class="d-flex align-items-center gap-2">
+                                    <h6 class="mb-0">Electric Bill</h6>
+                                    <span class="badge bg-danger-subtle text-danger rounded-pill px-2 fs-xs">Utilities</span>
+                                </div>
+                                <small class="text-muted">18 Feb 2024</small>
+                            </div>
+                        </div>
+                        <span class="text-danger fw-medium">-$85.00</span>
+                    </div>
+                </div>
+
+                <div class="text-center mt-4">
+                    <a href="#" class="text-decoration-none">View All Transactions</a>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- Budget Overview -->
+    <div class="col-lg-4">
+        <div class="card border-0 shadow-sm">
+            <div class="card-header border-0 bg-transparent py-3">
+                <h5 class="mb-0">Categories Overview</h5>
+            </div>
+            <div class="card-body">
+                <!-- Monthly Budget -->
+                <div class="d-flex align-items-center gap-3 mb-4">
+                    <div class="bg-primary-subtle p-3 rounded-3">
+                        <i class='bx bx-wallet text-primary fs-4'></i>
+                    </div>
+                    <div>
+                        <p class="text-muted mb-1">Overall Budget</p>
+                        <h4 class="mb-0">$2,500 <small class="text-muted fs-6">/ $5,000</small></h4>
+                    </div>
+                </div>
+
+                <!-- Category Budgets -->
+                <div class="vstack gap-3">
+                    <!-- Food -->
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class='bx bx-restaurant text-info'></i>
+                                <span>Food & Dining</span>
+                            </div>
+                            <span class="text-muted fs-sm">$400 / $800</span>
+                        </div>
+                        <div class="progress rounded-pill" style="height: 6px;">
+                            <div class="progress-bar bg-info rounded-pill" role="progressbar" style="width: 50%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Transportation -->
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class='bx bx-car text-warning'></i>
+                                <span>Transportation</span>
+                            </div>
+                            <span class="text-muted fs-sm">$150 / $300</span>
+                        </div>
+                        <div class="progress rounded-pill" style="height: 6px;">
+                            <div class="progress-bar bg-warning rounded-pill" role="progressbar" style="width: 50%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Entertainment -->
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class='bx bx-movie-play text-success'></i>
+                                <span>Entertainment</span>
+                            </div>
+                            <span class="text-muted fs-sm">$200 / $400</span>
+                        </div>
+                        <div class="progress rounded-pill" style="height: 6px;">
+                            <div class="progress-bar bg-success rounded-pill" role="progressbar" style="width: 50%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Utilities -->
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center gap-2">
+                                <i class='bx bx-home text-danger'></i>
+                                <span>Utilities</span>
+                            </div>
+                            <span class="text-muted fs-sm">$300 / $500</span>
+                        </div>
+                        <div class="progress rounded-pill" style="height: 6px;">
+                            <div class="progress-bar bg-danger rounded-pill" role="progressbar" style="width: 60%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

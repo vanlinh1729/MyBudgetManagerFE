@@ -7,9 +7,32 @@
             <button class="btn btn-link d-none d-md-block" (click)="toggleSidebar()">
                 <i class='bx bx-menu fs-4'></i>
             </button>
-            <!-- <h5 class="mb-0 ms-3">Dashboard</h5> -->
+            <h5 class="mb-0 ms-3">Overview</h5>
         </div>
         <div class="d-flex align-items-center">
+            <!-- Search Box -->
+            <div class="search-box me-3">
+                <input type="text" placeholder="Search...">
+                <i class='bx bx-search'></i>
+            </div>
+            
+            <!-- Theme Toggle -->
+            <div class="nav-icon me-3" (click)="toggleTheme()">
+                <i class='bx' [class.bx-moon]="!(isDarkTheme$ | async)" [class.bx-sun]="isDarkTheme$ | async"></i>
+            </div>
+            
+            <!-- Messages -->
+            <div class="nav-icon me-3">
+                <i class='bx bx-envelope'></i>
+                <span class="badge">3</span>
+            </div>
+            
+            <!-- Notifications -->
+            <div class="nav-icon me-3">
+                <i class='bx bx-bell'></i>
+                <span class="badge">5</span>
+            </div>
+
             <div class="dropdown">
                 <button class="btn btn-link dropdown-toggle" type="button" data-bs-toggle="dropdown">
                     <img src="assets/images/icon-user-male.svg" alt="User">
@@ -22,27 +45,52 @@
                 </ul>
             </div>
         </div>
+        
     </div>
 </nav>
 
 <!-- Sidebar -->
 <div class="sidebar" [class.hidden]="isSidebarHidden">
-    <div class="logo">
-        <img src="assets/images/dark-logo.svg" alt="Logo">
-        <span>Dashboard</span>
+    <div class="brand-logo">
+        <img *ngIf="!(isDarkTheme$ | async)" src="assets/mbm-logo-dark.png" alt="Logo">
+        <img *ngIf="isDarkTheme$ | async" src="assets/mbm-logo-light.png" alt="Logo">
     </div>
     <div class="p-3">
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link active" routerLink="/dashboard" routerLinkActive="active" title="Dashboard">
+                <a class="nav-link" routerLink="/dashboard" routerLinkActive="active" title="Dashboard">
                     <img src="assets/images/icon-dd-application.svg" alt="Dashboard">
                     <span>Dashboard</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" routerLink="/users" routerLinkActive="active" title="Users">
-                    <img src="assets/images/icon-user-male.svg" alt="Users">
-                    <span>Users</span>
+                <a class="nav-link" routerLink="/wallet" routerLinkActive="active" title="Wallet">
+                    <img src="assets/wallet-svgrepo-com.svg" alt="Dashboard">
+                    <span>Wallet</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/transactions" routerLinkActive="active" title="Transactions">
+                    <img src="assets/second-hand-transaction-svgrepo-com.svg" alt="Dashboard">
+                    <span>Transactions</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/groups" routerLinkActive="active" title="Groups">
+                    <img src="assets/users-group-svgrepo-com.svg" alt="Dashboard">
+                    <span>Groups</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/account-profile" routerLinkActive="active" title="Account Profile">
+                    <img src="assets/profile-svgrepo-com.svg" alt="Users">
+                    <span>Account Profile</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/categories" routerLinkActive="active" title="Categories">
+                    <img src="assets/images/icon-tasks.svg" alt="Reports">
+                    <span>Categories</span>
                 </a>
             </li>
             <li class="nav-item">
@@ -51,12 +99,7 @@
                     <span>Settings</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/reports" routerLinkActive="active" title="Reports">
-                    <img src="assets/images/icon-tasks.svg" alt="Reports">
-                    <span>Reports</span>
-                </a>
-            </li>
+            
         </ul>
     </div>
 </div>

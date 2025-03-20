@@ -130,11 +130,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     $('.owl-carousel').owlCarousel({
       loop: true,
-      margin: 10,
+      margin: 15,
       nav: true,
       dots: false,
-      autoplay: false,
+      autoplay: true,
       autoplayTimeout: 3000,
+      autoplaySpeed: 1500,
       autoplayHoverPause: true,
       responsive: {
         0: {
